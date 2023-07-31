@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handson 5</title>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+    <h1>REACT HANDSON 5</h1>
+    <h2>Q What is Pure Component?</h4>
+    <p>Pure Components in React are the components which do not re-renders when the value of state and props has been
+        updated with the same values.
+        </p>
+        <p>If the value of the previous state or props and the new state or props is the same, the component is not re-rendered.</p>
+        <h3>Benefits:</h3>
+        <P><ul type="1"
+            >
+            <li>These are useful when to avoid re-rendering cycles of your component when its props and state are not changed .</li>
+            <li>Takes care of “shouldComponentUpdate” implicitly</li>
+            <li>Pure Components are more performant in certain cases</li>
+        </ul></P>
+        <h3 >->How to use pure components:</h3>
+        <h4>CASE: pure Component in case of state change</h4>
+            <p>If the state of any variable is not changing then render() Will not be called, if the state is changing then render() will be called
+            </p>
+        <h4>CASE: when the state of any variable is changing, but the passing value in props for child component is not
+            changing</h4>
+            <p>In these case child component will also render itself for every state change, to prevent it from rendering use pure
+                components in the child component as well</p>
+            <h3>Pure Components Issues:</h3>
+        <p>since here we are adding new elements to the array, but still render() is not called
+            Reason: In case of the object the reference is being compared, we are getting inside the array and changing a particular
+            value but the reference to that particular array is not getting changed, it still remains the same as a result of which this
+            particular will give us true and for pure component, these are true as well and hence pure component feel that there is no
+            change happen and it will not go ahead and will not render the components hence pure components are only to be used with
+            simple variables that we have
+            </p>
+            <H2>example:</H2>
+        <pre class="ans">
+            import React from 'react'
+            class App extends React.PureComponent;
+            this.render(){
+                const {points=0}=this.props;
+                return (
+                    <div>
+                    
+                    <span>{points}</span>
+                    </div>
+                )
+            }
+        </pre>
+        <h2>Q.What is Higher order component(HOC) ?</h2>
+        <p>
+            Higher-order components or HOC is the advanced method of reusing the component functionality logic. It simply takes the original component and returns the enhanced component.
+        </p>
+        <p>We know that component transforms props into UI, and a higher-order component converts a component another component and allows to add additional data or functionality into this. Hocs are common in third-party libraries. The examples of HOCs are Redux's connect and Relay's createFragmentContainer</p>
+        <h3>Syntax:</h3>
+        <h4>const EnhancedComponent = higherOrderComponent(OriginalComponent);</h4>
+        <h3>Reasons to use HOC</h3>
+        <ul>
+            <li>Easy to handle</li>
+            <li>Get rid of copying the same logic in every component</li>
+            <li>Makes code more readable</li>
+            <h4>example:</h4>
+        <pre class="ans">
+           
+                    import React from "react";
+                    import { useState } from "react";
+                    const HocCntr=(wrappedComponent)=>{
+                        
+                    function Hoc(){
+                        const [count,setcount]=useState(0);
+                        const Incrment=()=>{
+                            setcount(count+1);
+                        }
+                    
+                    
+                    return (
+                        <>
+                        <wrappedComponent Count={count} incrment={Incrment}/>
+                        </>
+                    )}
+                    return  Hoc;
+                    }
+                    export default HocCntr;  
+                </pre>
+            </ul>
+        </pre>
+     </body>
+</html>

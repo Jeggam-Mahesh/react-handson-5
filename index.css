@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+    color: blueviolet;
+    text-decoration: underline;
+}
+body{
+    background-image: linear-gradient(rgb(211, 246, 246),rgb(248, 189, 218),rgb(233, 227, 227) );
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
+.ans{
+    color: rgb(93, 49, 238);
+}
